@@ -2,12 +2,17 @@ import streamlit as st
 import random
 import time
 
-# Streamlit ka footer aur main menu hide krne ke liye
+# Complete Premium Hide Hack (Menu, Footer, Profile & Hosted Status)
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
+            /* Naye toolbar aur hosted container ko hide krne ke liye */
+            div[data-testid="stStatusWidget"] {visibility: hidden;}
+            .embeddedAppMetaInfoBar_container__DxxL1 {display: none !important;}
+            iframe[title="Manage app"] {display: none !important;}
+            div.stActionButton {display: none !important;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
