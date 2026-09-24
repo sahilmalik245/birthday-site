@@ -2,6 +2,16 @@ import streamlit as st
 import random
 import time
 
+# Streamlit ka footer aur main menu hide krne ke liye
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # 1. Page Config Setup (Must be first)
 st.set_page_config(page_title="Happy Birthday Amna Malik!", page_icon="🎂", layout="centered")
 
