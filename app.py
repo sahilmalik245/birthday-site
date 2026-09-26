@@ -5,25 +5,30 @@ import time
 # Complete Premium Hide Hack (Menu, Footer, Profile & Hosted Status)
 hide_st_style = """
             <style>
-            /* 1. Main Menu, Header aur default footer ko block karne ke liye */
+            /* Default Streamlit UI Objects hide karein */
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             
-            /* 2. Streamlit Cloud ke naye profile badges aur icons ko completely hide karne ke liye */
+            /* Sabhi toolbar buttons aur view-source ko band karein */
             div[data-testid="stStatusWidget"] {display: none !important;}
             .stActionButton {display: none !important;}
             button[title="View app source"] {display: none !important;}
             iframe[title="Manage app"] {display: none !important;}
             
-            /* 3. Niche ka toolbar aur view source containers ko invisible karne ke liye */
+            /* Niche aane wale embedded bottom bar aur uske "Full Screen" button ko hide karein */
             div[class*="viewerToolbar"] {display: none !important;}
             div[class*="embeddedAppMetaInfoBar"] {display: none !important;}
             [data-testid="collapsedControl"] {display: none !important;}
-            .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137 {display: none !important;}
+            
+            /* Khaas taur par "Full Screen" button aur link toolbar ko completely remove karne ke liye */
+            button[title="View fullscreen"] {display: none !important;}
+            div[data-testid="stComponentBase"] button {display: none !important;}
+            .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_ {display: none !important;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 # 1. Page Config Setup (Must be first)
 st.set_page_config(page_title="Happy Birthday Amna Malik!", page_icon="🎂", layout="centered")
