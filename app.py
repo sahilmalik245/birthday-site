@@ -5,14 +5,22 @@ import time
 # Complete Premium Hide Hack (Menu, Footer, Profile & Hosted Status)
 hide_st_style = """
             <style>
+            /* 1. Main Menu, Header aur default footer ko block karne ke liye */
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
-            /* Naye toolbar aur hosted container ko hide krne ke liye */
-            div[data-testid="stStatusWidget"] {visibility: hidden;}
-            .embeddedAppMetaInfoBar_container__DxxL1 {display: none !important;}
+            
+            /* 2. Streamlit Cloud ke naye profile badges aur icons ko completely hide karne ke liye */
+            div[data-testid="stStatusWidget"] {display: none !important;}
+            .stActionButton {display: none !important;}
+            button[title="View app source"] {display: none !important;}
             iframe[title="Manage app"] {display: none !important;}
-            div.stActionButton {display: none !important;}
+            
+            /* 3. Niche ka toolbar aur view source containers ko invisible karne ke liye */
+            div[class*="viewerToolbar"] {display: none !important;}
+            div[class*="embeddedAppMetaInfoBar"] {display: none !important;}
+            [data-testid="collapsedControl"] {display: none !important;}
+            .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137 {display: none !important;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
