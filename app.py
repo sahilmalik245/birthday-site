@@ -3,32 +3,40 @@ import random
 import time
 
 # Complete Premium Hide Hack (Menu, Footer, Profile & Hosted Status)
-hide_st_style = """
-            <style>
-            /* Default Streamlit UI Objects hide karein */
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            
-            /* Sabhi toolbar buttons aur view-source ko band karein */
-            div[data-testid="stStatusWidget"] {display: none !important;}
-            .stActionButton {display: none !important;}
-            button[title="View app source"] {display: none !important;}
-            iframe[title="Manage app"] {display: none !important;}
-            
-            /* Niche aane wale embedded bottom bar aur uske "Full Screen" button ko hide karein */
-            div[class*="viewerToolbar"] {display: none !important;}
-            div[class*="embeddedAppMetaInfoBar"] {display: none !important;}
-            [data-testid="collapsedControl"] {display: none !important;}
-            
-            /* Khaas taur par "Full Screen" button aur link toolbar ko completely remove karne ke liye */
-            button[title="View fullscreen"] {display: none !important;}
-            div[data-testid="stComponentBase"] button {display: none !important;}
-            .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_ {display: none !important;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+st.components.v1.html(
+    """
+    <script>
+    window.parent.document.addEventListener("DOMContentLoaded", function() {
+        const style = window.parent.document.createElement('style');
+        style.innerHTML = `
+            #MainMenu, footer, header { visibility: hidden !important; display: none !important; }
+            div[data-testid="stStatusWidget"], .stActionButton, button[title="View app source"] { display: none !important; }
+            iframe[title="Manage app"], div[class*="viewerToolbar"], div[class*="embeddedAppMetaInfoBar"] { display: none !important; }
+            [data-testid="collapsedControl"] { display: none !important; }
+            button[title="View fullscreen"] { display: none !important; }
+            .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, [class*="viewerBadge"] { display: none !important; }
+        `;
+        window.parent.document.head.appendChild(style);
+    });
+    </script>
+    """,
+    height=0,
+    width=0
+)
 
+# Niche Aapka Purana CSS framework jo background safety ke liye kaam karega
+st.markdown(
+    """
+    <style>
+    #MainMenu, footer, header {visibility: hidden !important;}
+    div[data-testid="stStatusWidget"], .stActionButton, button[title="View app source"] {display: none !important;}
+    iframe[title="Manage app"], div[class*="viewerToolbar"], div[class*="embeddedAppMetaInfoBar"] {display: none !important;}
+    [data-testid="collapsedControl"], button[title="View fullscreen"] {display: none !important;}
+    [class*="viewerBadge"] {display: none !important;}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # 1. Page Config Setup (Must be first)
 st.set_page_config(page_title="Happy Birthday Amna Malik!", page_icon="🎂", layout="centered")
