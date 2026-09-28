@@ -17,6 +17,18 @@ st.components.v1.html(
             .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, [class*="viewerBadge"] { display: none !important; }
         `;
         window.parent.document.head.appendChild(style);
+
+        // --- NAYA JAVASCRIPT CODE YAHAN ADD KIYA HAI ---
+        try {
+            window.top.document.querySelectorAll('a[href*="github.com"], a[href*="streamlit.io"]').forEach(el => {
+                let container = el.closest('div') || el;
+                container.style.setProperty('display', 'none', 'important');
+                container.style.setProperty('visibility', 'hidden', 'important');
+            });
+        } catch (e) {
+            console.log("Iframe safe mode active");
+        }
+        // ----------------------------------------------
     });
     </script>
     """,
@@ -24,7 +36,7 @@ st.components.v1.html(
     width=0
 )
 
-# Niche Aapka Purana CSS framework jo background safety ke liye kaam karega
+# 3. Aapka purana background CSS safety ke liye
 st.markdown(
     """
     <style>
